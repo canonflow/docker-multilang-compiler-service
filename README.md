@@ -62,20 +62,24 @@ A PHP-based service for executing and compiling code in multiple programming lan
 ```http
 POST /execute
 {
-    "language" : string,
-    "code": BlobFile,
-    "input": BlobFile,
-    "time_limit": integer,
-    "memory_limit" integer,
+    "language" : "string",
+    "code": "BlobFile",
+    "input": "BlobFile",
+    "time_limit": "integer",
+    "memory_limit" "integer",
 }
 ```
 ### Response
 ```json
 {
-  "stdout": "string",
-  "stderr": "string",
-  "verdict": "string",
-  "runtime": "integer"
+  "status": "Ok",
+  "code": 200,
+  "data": {
+    "stdout": "string",
+    "stderr": "string",
+    "verdict": "string",
+    "runtime": "integer"
+  }
 }
 ```
 
