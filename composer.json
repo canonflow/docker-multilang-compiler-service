@@ -1,0 +1,16 @@
+{
+  "name": "canonflow/docker-multilang-compiler-service",
+  "description": "A PHP-based service for executing and compiling code in multiple programming languages using Docker container",
+  "authors": [
+    {
+      "name": "Nathan Garzya Santoso",
+      "email": "dev.nathangarzyasantoso@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "DockerMultiLangCompiler\\": "src/"
+    }
+  }
+}
