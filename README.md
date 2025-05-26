@@ -60,11 +60,11 @@ A PHP-based service for executing and compiling code in multiple programming lan
 ## Example API
 ### Request
 ```http
-POST /execute
+POST /judge
 {
     "language" : "string",
-    "code": "BlobFile",
-    "input": "BlobFile",
+    "code": "string",
+    "input": "string",
     "time_limit": "integer",
     "memory_limit" "integer",
 }

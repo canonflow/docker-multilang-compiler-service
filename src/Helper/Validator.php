@@ -17,10 +17,12 @@ class Validator {
 
         if (count($error) > 0)
         {
-            Response::Json([
+            return Response::Json([
                 "status" => "Bad Request",
                 "code" => 400,
-                "data" => $error
+                "data" => [
+                    "message" => $error
+                ]
             ]);
         }
     }

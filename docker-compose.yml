@@ -1,0 +1,14 @@
+version: "3.9"
+networks:
+  docker-multilang-compiler-service:
+
+services:
+  compiler:
+    build:
+      context: .
+      dockerfile: docker/compiler.dockerfile
+    volumes:
+      - ./docker/sandbox:/home/executor
+    container_name: docker_compiler
+    networks:
+      - docker-multilang-compiler-service

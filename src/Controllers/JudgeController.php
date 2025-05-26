@@ -15,12 +15,21 @@ class JudgeController {
 //        ]);
     }
 
-    public function judge()
+    public function judge(): Response
     {
-        Validator::validate(['name', 'age']);
+        // VALIDATE REQUEST
+        Validator::validate(['language', 'code', 'input', 'time_limit', 'memory_limit']);
+
+        // GET ALL REQUEST
+        $language = Request::get('language');
+        $code = Request::get('code');
+        $input = Request::get('input');
+        $time_limit = Request::get('time_limit');
+        $memory_limit = Request::get('memory_limit');
+
 
         $name = Request::get('name');
-        Response::Json([
+        return Response::Json([
             "status" => "OK",
             "code" => 200,
             "data" => [

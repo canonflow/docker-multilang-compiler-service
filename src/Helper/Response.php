@@ -4,7 +4,7 @@ namespace DockerMultiLangCompiler\Helper;
 
 class Response
 {
-    public static function Json(array $data, int $httpStatusCode = 200)
+    public static function Json(array $data, int $httpStatusCode = 200): mixed
     {
         http_response_code($httpStatusCode);
         echo json_encode($data);
