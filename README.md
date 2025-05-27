@@ -48,7 +48,7 @@ A PHP-based service for executing and compiling code in multiple programming lan
 ├── vendor/
 ├── .gitignore
 ├── composer.json
-├── composer-lock.json
+├── composer.lock
 ├── docker-compose.yml
 ├── index.php
 ├── LICENSE
