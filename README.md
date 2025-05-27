@@ -8,16 +8,16 @@ A PHP-based service for executing and compiling code in multiple programming lan
 - Suitable for online judges, code runners, and educational platforms
 
 ## Supported Languages
-- C++ (CPP)
-- Java
-- Pascal
-- Python
-- JS (NodeJS)
+- C++ (**clang17++**)
+- Java (**Java 17.0.1**)
+- Pascal (**Free Pascal Compiler 3.2.0**)
+- Python **(soon)**
+- JS **(NodeJS - soon)**
 
 ## Technologies Used
 - **PHP** (Core logic / service layer)
 - **Docker** (Sandboxes code execution)
-- **Unix** / Linux environment (CLI based compilation / execution)
+- **Unix** / **Alpine Linux** environment (CLI based compilation / execution)
 
 ## Folder Structure
 ```
@@ -27,14 +27,19 @@ A PHP-based service for executing and compiling code in multiple programming lan
 │   └── sandbox/
 ├── src/
 │   ├── Compiler/
-│   │   ├── Compiler.php
 │   │   └── Language.php
 │   ├── Controllers/
 │   │   └── JudgeController.php
+│   │   └── LanguageController.php
+│   ├── Dto/
+│   │   └── CompileDto.php
+│   │   └── JudgeDto.php
 │   ├── Helper/
 │   │   ├── Request.php
 │   │   ├── Response.php
-│   │   └── Validator.php
+│   │   ├── TempPath.php
+│   │   ├── Validator.php
+│   │   └── Verdict.php
 │   ├── Routes/
 │   │   └── Router.php
 │   └── Services/
@@ -52,10 +57,9 @@ A PHP-based service for executing and compiling code in multiple programming lan
 
 ## How It Works
 1. Receives code, language, and option input via HTTP
-2. Selects appropriate Docker image based on language
-3. Spins up a Docker container with volume bind
-4. Compiles / executes code inside container
-5. Returns stdout, stderr, verdict, and runtime.
+2. Spins up a Docker container with volume bind
+3. Compiles / executes code inside container
+4. Returns stdout, stderr, verdict, and runtime.
 
 ## Example API
 ### Request
@@ -78,7 +82,7 @@ POST /judge
     "stdout": "string",
     "stderr": "string",
     "verdict": "string",
-    "runtime": "integer"
+    "runtime": "string"
   }
 }
 ```

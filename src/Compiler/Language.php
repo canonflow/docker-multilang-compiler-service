@@ -5,15 +5,15 @@ namespace DockerMultiLangCompiler\Compiler;
 class Language {
     const LANGUAGES = [
         "cpp", "java", "pascal",
-        "python", "js"
+//        "python", "js"
     ];
 
     private const MAP_EXTENSION = [
         "cpp" => ".cpp",
         "java" => ".java",
         "pascal" => ".pas",
-        "python" => ".py",
-        "js" => ".js"
+//        "python" => ".py",
+//        "js" => ".js"
     ];
 
     private const COMPILED = ["cpp", "java", "pascal"];
@@ -45,6 +45,23 @@ class Language {
             default:
                 return "";
                 break;
+        }
+    }
+
+    public static function getJudgeCommand(string $dockerFolder, string $lang): string
+    {
+        switch (strtolower($lang))
+        {
+            case "cpp":
+                return "time $dockerFolder/compiled_cpp < $dockerFolder/input.in > $dockerFolder/result.out";
+                break;
+            case "java":
+                return "time java -cp $dockerFolder Main < $dockerFolder/input.in > $dockerFolder/result.out";
+                break;
+            case "pascal":
+                return "time $dockerFolder/compiled_pascal < $dockerFolder/input.in > $dockerFolder/result.out";
+            default:
+                return "";
         }
     }
 }

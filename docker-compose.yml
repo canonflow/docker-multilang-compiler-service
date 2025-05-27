@@ -10,5 +10,6 @@ services:
     volumes:
       - ./docker/sandbox:/home/executor
     container_name: docker_compiler
+    command: tail -f /dev/null
     networks:
       - docker-multilang-compiler-service

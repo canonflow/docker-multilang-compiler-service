@@ -1,6 +1,6 @@
 <?php
 
-namespace DockerMultiLangCompiler\Services;
+namespace DockerMultiLangCompiler\Helper;
 
 class Verdict {
     public const ACCEPTED = "accepted";
